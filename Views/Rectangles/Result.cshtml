@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Rectangle Checker</title>
+  </head>
+  <body>
+    <h2>Is it a square?</h2>
+
+    <p>Your rectangle's length is @Model.GetLength()</p>
+    <p>Your rectangle's width is @Model.GetWidth()</p>
+
+    @if (@Model.IsSquare())
+    {
+      <h4>Congratulations you made a square</h4>
+    }
+    else
+    {
+      <h4>Sorry! This isn't a square.</h4>
+    }
+    <p>The area of your rectangle is @Model.GetArea().</p>
+    <p><a href="/rectangles/createform">Make another rectangle</a></p>
+  </body>
+</html>
