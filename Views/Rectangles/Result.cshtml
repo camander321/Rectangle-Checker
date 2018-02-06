@@ -7,18 +7,20 @@
   <body>
     <h2>Is it a square?</h2>
 
-    <p>Your rectangle's length is @Model.GetLength()</p>
-    <p>Your rectangle's width is @Model.GetWidth()</p>
+    <p>Your rectangle's length is @Model["ResultingRectangle"].GetLength()</p>
+    <p>Your rectangle's width is @Model["ResultingRectangle"].GetWidth()</p>
 
-    @if (@Model.IsSquare())
+    @if (@Model["ResultingRectangle"].IsSquare())
     {
       <h4>Congratulations you made a square</h4>
+      <p>Surface area of a cube with those dimensions: @Model["ResultingCube"].GetSurfaceArea()</p>
+      <p>Volume of a cube with those dimensions: @Model["ResultingCube"].GetVolume()</p>
     }
     else
     {
       <h4>Sorry! This isn't a square.</h4>
     }
-    <p>The area of your rectangle is @Model.GetArea().</p>
+    <p>The area of your rectangle is @Model["ResultingRectangle"].GetArea().</p>
     <p><a href="/rectangles/createform">Make another rectangle</a></p>
   </body>
 </html>

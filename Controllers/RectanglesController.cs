@@ -16,8 +16,16 @@ namespace RectangleChecker.Controllers
     [HttpGet("/rectangles/result")]
     public ActionResult Result()
     {
+      Dictionary<string, object> Shapes = new Dictionary<string, object>();
       Rectangle myRectangle = new Rectangle(Int32.Parse(Request.Query["side-length"]), Int32.Parse(Request.Query["side-width"]));
-      return View("Result", myRectangle);
+      Shapes.Add("ResultingRectangle", myRectangle);
+      if (myRectangle.IsSquare())
+      {
+        Cube myCube = new Cube(myRectangle);
+        Shapes.Add("ResultingCube", myCube);
+      }
+
+      return View("Result", Shapes);
     }
   }
 }
